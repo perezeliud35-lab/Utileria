@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - utileria.js</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <div class="contenedor-formulario">
+        <h1>Iniciar sesión</h1>
+        <p class="subtitulo">Este login valida los campos con utileria.js</p>
+
+        <form id="formLogin">
+
+            <div class="grupo-formulario" id="grupoCorreoLogin">
+                <label for="correoLogin">Correo electrónico</label>
+                <input type="text" id="correoLogin" placeholder="ejemplo@correo.com">
+                <p class="mensaje-error" id="errorCorreoLogin"></p>
+            </div>
+
+            <div class="grupo-formulario" id="grupoPasswordLogin">
+                <label for="passwordLogin">Contraseña</label>
+                <input type="password" id="passwordLogin" placeholder="Mínimo 8 caracteres">
+                <p class="pista">Debe incluir mayúscula, minúscula, número y carácter especial.</p>
+                <p class="mensaje-error" id="errorPasswordLogin"></p>
+            </div>
+
+            <button type="submit" class="boton-convertir">Entrar</button>
+
+            <p id="mensajeLogin"></p>
+        </form>
+    </div>
+
+    <p class="pie-pagina">¿No tienes cuenta? <a href="index.html">Ir al formulario de registro</a></p>
+
+    <script src="js/utileria.js"></script>
+    <script>
+
+        const correoLogin = document.getElementById("correoLogin");
+        const passwordLogin = document.getElementById("passwordLogin");
+        const mensajeLogin = document.getElementById("mensajeLogin");
+
+        document.getElementById("formLogin").addEventListener("submit", function (evento) {
+            evento.preventDefault();
+
+            const correoValido = validarCorreo(correoLogin.value);
+            const passwordValida = validarPassword(passwordLogin.value);
+
+            document.getElementById("errorCorreoLogin").textContent = correoValido ? "" : "El correo no tiene un formato válido.";
+            document.getElementById("errorPasswordLogin").textContent = passwordValida ? "" : "La contraseña no cumple con los requisitos.";
+
+            if (correoValido && passwordValida) {
+                mensajeLogin.className = "mensaje-exito";
+                mensajeLogin.textContent = "Credenciales con formato válido.";
+            } else {
+                mensajeLogin.className = "mensaje-error";
+                mensajeLogin.textContent = "Revisa los campos marcados en rojo.";
+            }
+        });
+
+    </script>
+
+</body>
+</html>
