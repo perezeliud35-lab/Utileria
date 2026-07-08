@@ -8,9 +8,25 @@ Es un conjunto de funciones en JavaScript que armé para no repetir código cada
 
 Casi todos los formularios piden validar las mismas cosas: revisar que el correo tenga el formato correcto, que la contraseña no sea débil, que un nombre no traiga números, calcular la edad de alguien, etc. En vez de escribir esa lógica una y otra vez en cada proyecto, aquí ya está lista para importarla y usarla directo.
 
-## Instalación
+## CDN
 
-Nada complicado, solo enlaza el archivo en tu HTML:
+Esta librería está publicada en Cloudflare Workers y se puede consumir directamente desde cualquier página HTML, sin necesidad de descargar el archivo:
+
+```
+https://utileria.perezeliud35.workers.dev/js/utileria.js
+```
+
+### Uso desde el CDN
+
+```html
+<script src="https://utileria.perezeliud35.workers.dev/js/utileria.js"></script>
+```
+
+Con esa línea, en cualquier proyecto (aunque no tenga el archivo localmente) ya quedan disponibles todas las funciones: `validarCorreo()`, `soloLetras()`, `validarLongitud()`, `calcularEdad()`, `esMayorDeEdad()`, `validarPassword()`, `capitalizarPalabras()` y `calcularFuerzaPassword()`.
+
+## Instalación (uso local)
+
+También puedes descargar el archivo y enlazarlo localmente en tu HTML:
 
 ```html
 <script src="js/utileria.js"></script>
@@ -126,6 +142,9 @@ calcularFuerzaPassword("Abcdefgh1!")   // "Fuerte"
 └── img/
 ```
 
+## Demo en vivo
+
+https://utileria.perezeliud35.workers.dev
 
 ## Capturas de pantalla
 <img width="686" height="850" alt="image" src="https://github.com/user-attachments/assets/b813e11c-7067-4232-8466-bddd822cfcec" />
