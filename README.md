@@ -142,7 +142,7 @@ calcularFuerzaPassword("Abcdefgh1!")   // "Fuerte"
 └── img/
 ```
 
-## Demo en vivo
+## Link cdn
 
 https://utileria.perezeliud35.workers.dev
 
